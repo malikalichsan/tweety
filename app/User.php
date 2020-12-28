@@ -36,4 +36,19 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * custom accessor
+     * to use it we can call like this = $user->avatar
+     */
+    public function getAvatarAttribute()
+    {
+        return 'https://i.pravatar.cc/40?u=' . $this->email;
+    }
+
+    public function timeline()
+    {
+        return Tweet::where('user_id', $this->id)
+            ->latest()->get();
+    }
 }
