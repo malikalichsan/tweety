@@ -1,6 +1,4 @@
-@extends ('layouts.app')
-
-@section ('content')
+@component ('components.app')
     <header class="mb-8 relative">
         <img
             src="/images/default-profile-banner.jpg"
@@ -42,4 +40,4 @@
     </header>
 
     @include ('_timeline')
-@endsection
+@endcomponent
