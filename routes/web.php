@@ -1,5 +1,11 @@
 <?php
 
+// Debug query
+//\Illuminate\Support\Facades\DB::listen(function ($query) { dd($query->sql, $query->bindings); });
+
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,8 +22,10 @@ Route::get('/', function () {
 });
 
 Route::middleware('auth')->group(function () {
-    Route::get('tweets', 'TweetsController@index')->name('home');
-    Route::post('tweets', 'TweetsController@store');
+    Route::get('/tweets', 'TweetsController@index')->name('home');
+    Route::post('/tweets', 'TweetsController@store');
 });
+
+Route::get('/profiles/{user}', 'ProfilesController@show')->name('profile');
 
 Auth::routes();
