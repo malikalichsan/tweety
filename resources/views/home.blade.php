@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="lg:flex lg:justify-between">
+    <div class="lg:flex lg:justify-between mb-16">
         <div class="lg:w-32">
            @include ('_sidebar-links')
         </div>
@@ -16,8 +16,10 @@
             </div>
         </div>
 
-        <div class="lg:w-1/6 bg-blue-100 rounded-lg p-4">
-            @include ('_friends-list')
+        <div class="lg:w-1/6">
+            <div class="bg-blue-100 rounded-lg p-4">
+                @include ('_friends-list')
+            </div>
         </div>
     </div>
 @endsection
