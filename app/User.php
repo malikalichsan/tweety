@@ -15,9 +15,7 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $fillable = [
-        'name', 'email', 'password',
-    ];
+    protected $guarded = [];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -40,10 +38,13 @@ class User extends Authenticatable
     /**
      * custom accessor
      * to use it we can call like this = $user->avatar
+     * @param $value
+     * @return string
      */
-    public function getAvatarAttribute()
+    public function getAvatarAttribute($value)
     {
-        return 'https://i.pravatar.cc/200?u=' . $this->email;
+        // return 'https://i.pravatar.cc/200?u=' . $this->email;
+        return asset('storage' . DIRECTORY_SEPARATOR . $value);
     }
 
     /**
@@ -81,7 +82,7 @@ class User extends Authenticatable
 
     public function getRouteKeyName()
     {
-        return 'name';
+        return 'username';
     }
 
     public function path($append = '')
