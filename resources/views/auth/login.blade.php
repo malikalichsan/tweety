@@ -69,13 +69,17 @@
                     </div>
 
                     <div>
-                        <button type="submit"
-                                class="bg-blue-400 text-white rounded py-2 px-4 hover:bg-blue-500 mr-2"
-                        >
+                        @component ('components.submit-button')
                             Login
-                        </button>
+                        @endcomponent
 
-                        <a href="{{ route('password.request') }}" class="text-xs text-gray-700">Forger Your Password?</a>
+                        @component ('components.link-button')
+                            @slot ('link')
+                                {{ route('password.request') }}
+                            @endslot
+
+                            Forget Your Password?
+                        @endcomponent
                     </div>
                 </form>
             </div>

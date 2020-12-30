@@ -125,11 +125,17 @@
         </div>
 
         <div class="mb-6">
-            <button type="submit"
-                    class="bg-blue-400 text-white rounded py-2 px-4 hover:bg-blue-500"
-            >
+            @component ('components.submit-button')
                 Submit
-            </button>
+            @endcomponent
+
+            @component ('components.link-button')
+                @slot ('link')
+                    {{ $user->path() }}
+                @endslot
+                
+                Cancel
+            @endcomponent
         </div>
     </form>
 @endcomponent
