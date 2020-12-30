@@ -21,13 +21,19 @@ trait Followable
 
     public function toggleFollow(User $user)
     {
-        if ($this->following($user)) {
-            // have the auth'd user unfollow the given user
-            return $this->unfollow($user);
-        }
+//        if ($this->following($user)) {
+//            // have the auth'd user unfollow the given user
+//            return $this->unfollow($user);
+//        }
+//
+//        // have the auth'd user follow the given user
+//        return $this->follow($user);
 
-        // have the auth'd user follow the given user
-        return $this->follow($user);
+        // this work just like above
+        // but simpler
+        // we just need to call the relationship
+        // and call toggle() method
+        $this->follows()->toggle($user);
     }
 
     public function following(User $user)

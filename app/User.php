@@ -36,6 +36,18 @@ class User extends Authenticatable
     ];
 
     /**
+     * Mutator
+     *
+     * Set password to encrypted
+     * @param  string  $value
+     * @return void
+     */
+    public function setPasswordAttribute($value)
+    {
+        $this->attributes['password'] = bcrypt($value);
+    }
+
+    /**
      * custom accessor
      * to use it we can call like this = $user->avatar
      * @param $value
