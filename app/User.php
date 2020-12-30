@@ -39,7 +39,7 @@ class User extends Authenticatable
      * Mutator
      *
      * Set password to encrypted
-     * @param  string  $value
+     * @param string $value
      * @return void
      */
     public function setPasswordAttribute($value)
@@ -56,7 +56,11 @@ class User extends Authenticatable
     public function getAvatarAttribute($value)
     {
         // return 'https://i.pravatar.cc/200?u=' . $this->email;
-        return asset('storage' . DIRECTORY_SEPARATOR . $value);
+        $avatar = $value
+            ? 'storage/' . $value
+            : 'images/default-avatar.jpeg';
+
+        return asset($avatar);
     }
 
     /**
