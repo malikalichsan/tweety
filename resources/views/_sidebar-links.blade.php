@@ -30,7 +30,7 @@
         </a>
     </li>
     <li>
-        <a href="{{ auth()->user()->profile }}" class="font-bold text-lg mb-4 block">
+        <a href="{{ current_user()->profile }}" class="font-bold text-lg mb-4 block">
             Profile
         </a>
     </li>
