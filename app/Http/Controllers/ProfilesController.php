@@ -9,7 +9,7 @@ class ProfilesController extends Controller
 {
     public function show(User $user)
     {
-        $tweets = $user->tweets()->latest()->get();
+        $tweets = $user->tweets;
 
         return view('profiles.show', compact(['user', 'tweets']));
     }
