@@ -133,7 +133,7 @@
                 @slot ('link')
                     {{ $user->path() }}
                 @endslot
-                
+
                 Cancel
             @endcomponent
         </div>
