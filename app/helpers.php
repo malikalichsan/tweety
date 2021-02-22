@@ -1,7 +1,7 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: Malik Al Ichsan <malik.ichsan@salt.co.id>
+ * User: Malik Al Ichsan
  */
 
 function current_user()
